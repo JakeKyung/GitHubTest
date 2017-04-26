@@ -2,5 +2,5 @@
     <string name="app_name">GitHubTest</string>
     <string name="hello_word">Hello word Test</string>
     <string name="splash">splash</string>
-    <string name="splash_layout">Splash Layout</string>
+    <string name="another_button">Another Button</string>
 </resources>
