@@ -3,5 +3,6 @@
     <string name="hello_word">Hello word Test</string>
     <string name="splash">splash</string>
     <string name="another_button">Another Button</string>
+    <string name="another2_button">Another Button</string>
     <string name="splash_layout">Splash Layout</string>
 </resources>
