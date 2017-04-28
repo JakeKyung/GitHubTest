@@ -17,17 +17,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/tab_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/another_button"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/another2_button"
-        />
+        android:layout_weight="0" />
 
 
 </LinearLayout>

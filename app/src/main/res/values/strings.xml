@@ -5,4 +5,14 @@
     <string name="another_button">Another Button</string>
     <string name="another2_button">Another Button</string>
     <string name="splash_layout">Splash Layout</string>
+    <string name="App_finish">App Finish Ok?</string>
+
+    <string name="tabbar_title_home">Home</string>
+    <string name="tabbar_title_request">Request</string>
+    <string name="tabbar_title_shopping">Shopping</string>
+    <string name="tabbar_title_mypage">My page</string>
+
+    tabbar_title_request
+
+
 </resources>
