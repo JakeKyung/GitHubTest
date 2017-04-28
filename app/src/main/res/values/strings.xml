@@ -5,4 +5,5 @@
     <string name="another_button">Another Button</string>
     <string name="another2_button">Another Button</string>
     <string name="splash_layout">Splash Layout</string>
+    <string name="App_finish">App Finish Ok?</string>
 </resources>
