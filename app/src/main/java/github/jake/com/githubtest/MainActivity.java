@@ -3,10 +3,13 @@ package github.jake.com.githubtest;
 
 import android.os.Handler;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
 public class MainActivity extends ParentTabActivity {
+
+    private LinearLayout tab_layout;
 
 
 
@@ -14,6 +17,7 @@ public class MainActivity extends ParentTabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tab_layout = (LinearLayout) findViewById(R.id.tab_layout);
 
     }
 
