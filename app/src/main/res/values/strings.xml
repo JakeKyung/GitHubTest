@@ -10,9 +10,14 @@
     <string name="tabbar_title_home">Home</string>
     <string name="tabbar_title_request">Request</string>
     <string name="tabbar_title_shopping">Shopping</string>
-    <string name="tabbar_title_mypage">My page</string>
+    <string name="tabbar_title_my_cart">Cart</string>
+    <string name="tabbar_title_my_page">My page</string>
 
-    tabbar_title_request
 
+    <string name="home_fragment">Home fragment</string>
+    <string name="request_fragment">Request fragment</string>
+    <string name="shopping_fragment">shopping fragment</string>
+    <string name="cart_fragment">Cart fragment</string>
+    <string name="my_page_fragment">MyPage fragment</string>
 
 </resources>

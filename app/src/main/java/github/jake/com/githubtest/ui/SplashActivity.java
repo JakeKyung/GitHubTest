@@ -1,7 +1,9 @@
-package github.jake.com.githubtest;
+package github.jake.com.githubtest.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import github.jake.com.githubtest.R;
 
 public class SplashActivity extends ParentActivity {
 
@@ -17,7 +19,6 @@ public class SplashActivity extends ParentActivity {
             }
         }, 2000);
     }
-
 
     private void startActivity() {
         Intent intent = new Intent(this, MainActivity.class);
