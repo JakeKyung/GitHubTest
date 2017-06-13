@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import github.jake.com.githubtest.CircularProgress;
 import github.jake.com.githubtest.Fragment.CartFragment;
 import github.jake.com.githubtest.Fragment.MainContentFragment;
 import github.jake.com.githubtest.Fragment.MyPageFragment;
@@ -29,11 +30,17 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
     private FragmentManager fragmentManager;
     private Fragment mainContentFragment, requestFragment , shoppingFragment , cartFragment , mypageFragment;
 
+    private CircularProgress progressBar;
+    private Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tab_layout = (LinearLayout) findViewById(R.id.tab_layout);
+
+        progressBar = new CircularProgress(this);
+        if (mHandler == null) mHandler = new Handler();
 
         fragmentManager =getSupportFragmentManager();
 
@@ -73,6 +80,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                             .commit();
                 }
                 home_tab.setSelected(true);
+                setProgressable(false);
                 break;
 
             case 2 :
@@ -89,6 +97,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                             .commit();
                 }
                 request_tab.setSelected(true);
+                setProgressable(false);
                 break;
 
 
@@ -106,6 +115,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                             .commit();
                 }
                 shopping_tab.setSelected(true);
+                setProgressable(false);
                 break;
             case 4 :
                 cartFragment = fragmentManager.findFragmentByTag("cart");
@@ -121,6 +131,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                             .commit();
                 }
                 cart_tab.setSelected(true);
+                setProgressable(false);
                 break;
             case 5 :
                 mypageFragment = fragmentManager.findFragmentByTag("mypage");
@@ -136,6 +147,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                             .commit();
                 }
                 my_page_tab.setSelected(true);
+                setProgressable(false);
                 break;
         }
     }
@@ -163,6 +175,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.home_tab:
+                setProgressable(true);
                 home_tab.setSelected(true);
                 request_tab.setSelected(false);
                 shopping_tab.setSelected(false);
@@ -171,6 +184,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                 TABNUMBER =1;
                 break;
             case R.id.request_tab:
+                setProgressable(true);
                 home_tab.setSelected(false);
                 request_tab.setSelected(true);
                 shopping_tab.setSelected(false);
@@ -179,6 +193,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                 TABNUMBER =2;
                 break;
             case R.id.shopping_tab:
+                setProgressable(true);
                 home_tab.setSelected(false);
                 request_tab.setSelected(false);
                 shopping_tab.setSelected(true);
@@ -187,6 +202,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                 TABNUMBER =3;
                 break;
             case R.id.cart_tab:
+                setProgressable(true);
                 home_tab.setSelected(false);
                 request_tab.setSelected(false);
                 shopping_tab.setSelected(false);
@@ -195,6 +211,7 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
                 TABNUMBER =4;
                 break;
             case R.id.my_page_tab:
+                setProgressable(true);
                 home_tab.setSelected(false);
                 request_tab.setSelected(false);
                 shopping_tab.setSelected(false);
@@ -205,6 +222,29 @@ public class MainActivity extends ParentTabActivity implements View.OnClickListe
         }
 
         display(TABNUMBER);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (progressBar != null) {
+            progressBar.dismiss();
+            progressBar = null;
+        }
+    }
+
+
+    public void setProgressable(boolean enable) {
+        if (enable) {
+            if (progressBar != null) progressBar.show();
+        } else {
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (progressBar != null) progressBar.dismiss();
+                }
+            }, 500);
+        }
     }
 
 
